@@ -1,0 +1,82 @@
+body {
+  margin: auto;
+  min-height: 100vh;
+  width: min(300px, 50vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  border: 1px solid;
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.cell {
+  color: transparent;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+.score {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  align-items: center;
+  gap: 0.75em;
+  > :first-child {
+    justify-self: end;
+    text-align: end;
+  }
+}
+
+.score input {
+  color: rgb(46, 46, 46);
+  width: 100%;
+  font-size: 80%;
+  font-weight: inherit;
+  border: none;
+  cursor: pointer;
+
+  &::selection {
+    background-color: #0005;
+    color: inherit;
+  }
+}
+
+.reset {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 1em;
+  padding: 0.75em 1.5em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #222;
+  }
+
+  &:active {
+    background-color: #111;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.x,
+.o {
+  background: no-repeat var(--bg-url);
+}
+
+.x {
+  --bg-url: url(../src/img/x.svg);
+}
+
+.o {
+  --bg-url: url(../src/img/o.svg) center/78%;
+}
